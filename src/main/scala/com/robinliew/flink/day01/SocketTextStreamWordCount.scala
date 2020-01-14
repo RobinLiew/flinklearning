@@ -1,7 +1,7 @@
 package com.robinliew.flink.day01
 
-import org.apache.flink.api.common.typeinfo.TypeInformation
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
+import org.apache.flink.streaming.api.scala.createTypeInformation
 
 object SocketTextStreamWordCount {
 
@@ -22,7 +22,6 @@ object SocketTextStreamWordCount {
     //获取数据
     val stream = env.socketTextStream(hostname, port)
 
-    implicit val typeInfo = TypeInformation.of(classOf[(String,Integer)])
     //计数
     val sum = stream.flatMap(new LineSplitter()).keyBy(0).sum(1)
 
