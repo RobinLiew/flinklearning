@@ -8,7 +8,7 @@ object SocketTextStreamWordCount {
   def main(args: Array[String]): Unit = {
     //参数检查//参数检查
 
-    if (args.length ne 2) {
+    if (args.length != 2) {
       System.err.println("USAGE:\nSocketTextStreamWordCount <hostname> <port>")
       return
     }
